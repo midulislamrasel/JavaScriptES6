@@ -240,27 +240,149 @@ console.log(studentName1())
 
 
 
+//Destructuring
+//array Destructuring
+
+// let number = [10, 12, 43, 21, 40, 42, 11];
+// let [num1, num2, num3, num4, num5, num6 ,num7] = number;
+// console.log(number = [num7]);
+
+//swap variables
+// let a = 10, b = 20;
+// [a, b] = [b, a];
+// console.log(a);
+// console.log(b);
+
+
+//object Destructuring
+// const student = {
+//     id: 101,
+//     fullName: 'Akash',
+//     gpa: 3.20,
+//     languages: {
+//         native: 'Bangla',
+//         beginner:'english'
+//     }
+// }
+// console.log(student.id)
+// console.log(student.fullName)
+// console.log(student.gpa)
+//const { id, fullName, gpa, languages } = student; //Destructuring Object
+// console.log(id);
+// console.log(fullName);
+// console.log(gpa);
+// console.log(languages.native); //
+
+
+
+//Destructuring Function parameters
+// const studentInfo = ({id,fullName}) => {
+//     console.log(`${id} , ${fullName}`)
+// }
+
+// const student1 = {
+//     id: 101,
+//     fullName: 'Midul islam',
+//     gpa: 3.40
+// }
+// studentInfo(student1)
+
+
+
+
+//Array Methods
+// find(callback,vale) return the value of the first element that pass certain condition
+
+// let number = [13, 15, 23, 12, 42, 12, 41];
+// let firstEventNumber = number.find(x => x % 2 === 0);
+// console.log(firstEventNumber)
+
+//findIndex (callback, value)return the index of the first element that pass certain condition
+
+
+
+
+
+// string Methods
+//startWith (searchString , position) -> check a string starts with another string
+// const message = "Today is friday";
+// console.log(message.startsWith("Today"))
+
+//endsWith(searchString,length) -> check a string ends with another string
+// const message1 = "Today is friday";
+// console.log(message1.endsWith("Today"))
+// console.log(message1.endsWith("friday"))
+
+
+
+
+
+//synchronous vs Asynchronous
+// const taskOne = () => {
+//     console.log("task one");
+// }
+// const dataLoding = () => {
+//     console.log("task two")
+// }
+// const taskTwo = () => {
+ //     // const dataLoding = () => {
+//     //     console.log("task two Data loading")
+//     // }
+//     setTimeout(dataLoding, 2000); //এক কাজ করতে ‍ সময় লাগলে ‍ সে কাজ অফ রেখে বাকি কাজ করবে সেই জন্য setTimeout used করা হয় ।
+// }
+// const taskThree = () => {
+//     console.log("task three")
+// }
+// const taskFore = () => {
+//     console.log("task fore")
+// }
+// const taskFive = () => {
+//     console.log("task Five")
+// }
+// taskOne();
+// taskTwo();
+// taskThree();
+// taskFore();
+// taskFive()
 
 
 
 
 
 
+//CallBack and higher-order function
 
+const taskOne = (callback) => {
+    console.log("task one");
+    callback();
+}
+const taskTwo = (callback) => {
+    const dataLoding = () => {
+        console.log("task two Data loading")
+        callback()
+    }
+    setTimeout(dataLoding, 2000);
+}
+const taskThree = (callback) => {
+    console.log("task three")
+    callback();
+}
+const taskFore = (callback) => {
+    console.log("task fore")
+    callback();
+}
+const taskFive = () => {
+    console.log("task Five")
+    
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+taskOne(function f1() {
+    taskTwo(function f2() {
+        taskThree(function f3() {
+            taskFore(function f4() {
+                taskFive()
+            })
+        })
+    });
+})
 
